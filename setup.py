@@ -10,6 +10,6 @@ setup(
     license='unlicense',
     packages=['utilspandasgeneral'],
     # Needed for dependencies
-    install_requires=['pandas', 'datetime', 'pathlib'], #no nr - any version. specify - "numpy>=1.13.3"
+    install_requires=['pandas', 'datetime', 'pathlib','collections'], #no nr - any version. specify - "numpy>=1.13.3"
     zip_safe=False
 )

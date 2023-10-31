@@ -1,4 +1,21 @@
 
+#za sad koristeno samo u redgatehelper
+def df_cols_to_dict(df,col_as_key,col_as_value):
+    """
+    Transforms dataframe to "dictionary {COLNAME:[LIST OF VALUES]}"... I think... Write unit tests!
+    """
+    from collections import defaultdict
+    res_dict = defaultdict(list)
+    #df.to_dict('records') > [{col1:row1val, col2:row1val}, {col1:row2val, col2:row2val}....]
+    for row in df.to_dict('records'):
+        if col_as_value in row:
+            if row[col_as_value] not in res_dict[row[col_as_key]]:
+                res_dict[row[col_as_key]].append(row[col_as_value])
+        else:
+            print("No col col_as_value for col_as_key", col_as_key)
+    return res_dict
+
+############################
 #vraca subset sa istim kolonama nakon renameanja (ne uzima redove u obzir)
 #def subset_common_columns(df_source, df_target):
 def subset_2df_on_common_columns(df_source, df_target):
