@@ -1,10 +1,10 @@
 from setuptools import setup
 
 setup(
-    name='UtilsPandasGeneral',
+    name='UtilsPythonGeneral',
     version='0.0.1',
-    description='Utility functions for Pandas DF and Excel exporting through pandas (private repo',
-    url='git@github.com:volimcvijece/UtilsPandasGeneral.git',
+    description='Utility functions for Python, Pandas DF and Excel exporting through pandas',
+    url='git@github.com:volimcvijece/UtilsPythonGeneral.git',
     author='Tonko Caric',
     author_email='caric.tonko@gmail.com',
     license='unlicense',
