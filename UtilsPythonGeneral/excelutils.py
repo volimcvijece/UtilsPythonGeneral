@@ -10,18 +10,18 @@ class ExcelCustom():
         self.writer = None
         self.workbook = None
 
-    def _createfolder_getpath_mainchecks_absolutepath(self,META,MAIN_FOLDER_PATH):
-        RESULTS_SUBFOLDER_LVL1_LOOKUP_NAME = META['LOOKUP_TBL_FULLPATH'] #za RESULTS/dlookup name
+    def _createfolder_getpath_mainchecks_absolutepath(self,MAIN_FOLDER_PATH,DQ_SHEET_NAME):
+        RESULTS_SUBFOLDER_LVL1_LOOKUP_NAME = DQ_SHEET_NAME #za RESULTS/dlookup name
         RESULTS_SUBFOLDER_LVL1_LOOKUP_DATE = datetime.today().strftime('%Y-%m-%d') #za RESULTS/dlookup name/current date
         RESULT_PATH = PurePath(MAIN_FOLDER_PATH,'RESULTS',RESULTS_SUBFOLDER_LVL1_LOOKUP_NAME,RESULTS_SUBFOLDER_LVL1_LOOKUP_DATE)
         Path(RESULT_PATH).mkdir(parents=True, exist_ok=True)
         return RESULT_PATH
 
 
-    def determine_file_name_mainchecks(self,META,MAIN_FOLDER_PATH):
+    def determine_file_name_mainchecks(self,META,MAIN_FOLDER_PATH,DQ_SHEET_NAME):
         #TODO - improve - update on update, now is only once
         filename_template =f"QC-{META['TARGET_DB']}.{META['TARGET_SCHEMA']}.{META['TARGET_TABLE']}-vs-{META['SOURCE_DB']}.{META['SOURCE_SCHEMA']}.{META['SOURCE_TABLE']}"
-        full_path_folder = self._createfolder_getpath_mainchecks_absolutepath(META,MAIN_FOLDER_PATH)
+        full_path_folder = self._createfolder_getpath_mainchecks_absolutepath(MAIN_FOLDER_PATH,DQ_SHEET_NAME)
         version=1
 
         def _generate_full_path(ver):  
